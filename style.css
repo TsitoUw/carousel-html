@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    touch-action: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #152735;
+    padding: 0px 35px;
+}
+
+.warpper {
+    max-width: 100%;
+    position: relative;
+}
+
+.warpper i {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    padding: 0.5rem;
+    width: 42px;
+    height: 42px;
+    font-weight: bold;
+    border-radius: 999px;
+    cursor: pointer;
+    visibility: hidden;
+    transition: ease-out 0.2s;
+    opacity: 0;
+    font-family: monospace;
+}
+
+.warpper:hover i {
+    opacity: 0.3;
+    visibility: visible;
+    transition: ease-in-out all 0.2s;
+    backdrop-filter: blur(5px);
+}
+
+.warpper i:hover {
+    opacity: 1;
+}
+
+.warpper i:first-child {
+    left: -21px;
+}
+.warpper i:first-child::after {
+    content: '<';
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.warpper i:last-child::after {
+    content: '>';
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.warpper i:last-child {
+    right: -21px;
+    content: '>';
+}
+
+.warpper .carousel {
+    font-size: 0px;
+    cursor: grab;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.carousel.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+.carousel.dragging {
+    pointer-events: unset;
+}
+
+.carousel .content {
+    height: 340px;
+    aspect-ratio: square;
+    object-fit: cover;
+    width: calc(100% / 3);
+    margin-left: 14px;
+}
+
+.carousel .content:first-child {
+    margin-left: 0px;
+}
+
+@media screen and (max-width: 900px) {
+    .carousel .content {
+        width: calc(100% / 2);
+
+    }
+    .warpper i {
+        opacity: 0.8!important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .carousel .content {
+        width: calc(100% / 1);
+    }
+    .warpper i {
+        opacity: 0.8!important;
+    }
+}
